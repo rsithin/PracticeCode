@@ -1,9 +1,13 @@
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-// import java.security.SecureRandom;
-
 public class Algorithms {
+    /*
+     * This program creates an array randomly. It outputs the random array, then 
+     * runs each sorting algorithm and outputs the sorted result, reshuffling
+     * the array again after each sort before running the next algorithm. If successful,
+     * each sort outputs the exact same sorted array sequence.
+     */
     public static void main(String[] args) throws Exception {
         Random r = new Random();
         // SecureRandom r = new SecureRandom();
