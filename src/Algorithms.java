@@ -39,7 +39,7 @@ public class Algorithms {
         mergeSort(a, 0, a.length - 1);
         printout("Merge Sort data: ", a);
 
-        shuffle(a);
+        // shuffle(a); 
         int[] aSize = new int[a.length];
         for(int i = 0;i<aSize.length;i++) {
             aSize[i] = i;
@@ -59,6 +59,14 @@ public class Algorithms {
         System.out.println("Element at index: " + record);
 
         int result = linearSearch(a, record);
+        printSearch(record, result);
+
+
+        insertionSort(a);
+        result = iterativeBinarySearch(a, record);
+        printSearch(record, result);
+        
+        result = recursiveBinarySearch(a, 0, a.length-1, record);
         printSearch(record, result);
 
     }
