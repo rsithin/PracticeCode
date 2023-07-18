@@ -20,9 +20,9 @@ public class Algorithms {
             a[i] = r.nextInt(100);
 
         printout("Random data: ", a);
-        System.out.println("");
+        // System.out.println("");
         System.out.println("Sort Algorithms:");
-        System.out.println("");
+        // System.out.println("");
 
         insertionSort(a);
         printout("Insertion Sort: ", a);
@@ -47,7 +47,7 @@ public class Algorithms {
 
         System.out.println("");
         System.out.println("Search Algorithms:");
-        System.out.println("");
+        // System.out.println("");
         printout("Index: ", aSize);
         printout("Shuffled data: ", a);
 
@@ -59,15 +59,15 @@ public class Algorithms {
         System.out.println("Element at index: " + record);
 
         int result = linearSearch(a, record);
-        printSearch(record, result);
+        printSearch("Linear Search", record, result);
 
 
         insertionSort(a);
         result = iterativeBinarySearch(a, record);
-        printSearch(record, result);
+        printSearch("Iterative Binary Search", record, result);
         
         result = recursiveBinarySearch(a, 0, a.length-1, record);
-        printSearch(record, result);
+        printSearch("Recursive Binary Search", record, result);
 
     }
 
@@ -274,11 +274,11 @@ public class Algorithms {
         printOutput(a);
     }
 
-    public static void printSearch(int rec, int index) {
+    public static void printSearch(String type, int rec, int index) {
         if (index == -1) {
             System.out.println(rec + " not found.");
         } else {
-            System.out.println(rec + " found at index: " + index);
+            System.out.printf("%25s: %3s found at index %2d\n", type, rec, index);
         }
     }
 }
