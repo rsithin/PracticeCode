@@ -53,6 +53,14 @@ public class Algorithms {
 
         System.out.println("");
 
+        int index = r.nextInt(a.length);
+        int record = a[index];
+        System.out.println("Index to search: " + index);
+        System.out.println("Element at index: " + record);
+
+        int result = linearSearch(a, record);
+        printSearch(record, result);
+
     }
 
     /*
