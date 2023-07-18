@@ -3,9 +3,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Algorithms {
     /*
-     * This program creates an array randomly. It outputs the random array, then 
+     * This program creates an array randomly. It outputs the random array, then
      * runs each sorting algorithm and outputs the sorted result, reshuffling
-     * the array again after each sort before running the next algorithm. If successful,
+     * the array again after each sort before running the next algorithm. If
+     * successful,
      * each sort outputs the exact same sorted array sequence.
      */
     public static void main(String[] args) throws Exception {
@@ -19,21 +20,38 @@ public class Algorithms {
             a[i] = r.nextInt(100);
 
         printout("Random data: ", a);
+        System.out.println("");
+        System.out.println("Sort Algorithms:");
+        System.out.println("");
 
         insertionSort(a);
         printout("Insertion Sort: ", a);
 
         shuffle(a);
-        //printout("Shuffled data: ", a);
+        // printout("Shuffled data: ", a);
 
         bubbleSort(a);
         printout("Bubble Sort data: ", a);
 
         shuffle(a);
-        //printout("Shuffled data: ", a);
+        // printout("Shuffled data: ", a);
 
         mergeSort(a, 0, a.length - 1);
         printout("Merge Sort data: ", a);
+
+        shuffle(a);
+        int[] aSize = new int[a.length];
+        for(int i = 0;i<aSize.length;i++) {
+            aSize[i] = i;
+        }
+
+        System.out.println("");
+        System.out.println("Search Algorithms:");
+        System.out.println("");
+        printout("Index: ", aSize);
+        printout("Shuffled data: ", a);
+
+        System.out.println("");
 
     }
 
@@ -55,7 +73,8 @@ public class Algorithms {
             key = a[j];
             i = j - 1;
 
-            // If value at i is greater than key, move value at i in front of key and decrement
+            // If value at i is greater than key, move value at i in front of key and
+            // decrement
             while (i >= 0 && a[i] > key) {
                 a[i + 1] = a[i];
                 i -= 1;
@@ -149,14 +168,73 @@ public class Algorithms {
     }
 
     /*
+     * This method performs a linear search for a record starting from index 0.
+     * Data can be unsorted.
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     */
+    public static int linearSearch(int arr[], int rec) {
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] == rec) {
+                return index;
+            }
+        }
+
+        return -1;
+    }
+
+    /*
+     * This method performs a binary search, a divide and conquer search algorithm.
+     * Sorted data required. This can be implemented recursively or iteratively.
+     */
+    public static int iterativeBinarySearch(int arr[], int rec) {
+        int firstIndex = 0;
+        int lastIndex = arr.length - 1;
+
+        while (firstIndex <= lastIndex) {
+            int middleIndex = (firstIndex + lastIndex) / 2;
+
+            if (arr[middleIndex] == rec) {
+                return middleIndex;
+            }
+
+            else if (arr[middleIndex] < rec) {
+                firstIndex = middleIndex + 1;
+            }
+
+            else if (arr[middleIndex] > rec) {
+                lastIndex = middleIndex - 1;
+            }
+        }
+
+        return -1;
+    }
+
+    public static int recursiveBinarySearch(int arr[], int firstElement, int lastElement, int rec) {
+        if (lastElement >= firstElement) {
+            int mid = firstElement + (lastElement - firstElement) / 2;
+
+            if (arr[mid] == rec) {
+                return mid;
+            }
+
+            if (arr[mid] > rec) {
+                return recursiveBinarySearch(arr, firstElement, mid - 1, rec);
+            }
+
+            return recursiveBinarySearch(arr, mid + 1, lastElement, rec);
+        }
+        return -1;
+    }
+
+    /*
      * This method outputs the array passed to it with a new line
      */
     public static void printOutput(int[] a) {
         for (int i : a)
-            System.out.print(i + " ");
+            System.out.printf("%3s",i);
         System.out.println("");
     }
-
 
     /*
      * This method shuffles the array passed to it.
@@ -178,5 +256,13 @@ public class Algorithms {
     public static void printout(String s, int[] a) {
         System.out.printf("%25s", s);
         printOutput(a);
+    }
+
+    public static void printSearch(int rec, int index) {
+        if (index == -1) {
+            System.out.println(rec + " not found.");
+        } else {
+            System.out.println(rec + " found at index: " + index);
+        }
     }
 }
