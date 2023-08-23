@@ -25,7 +25,7 @@ public class Algorithms {
         // System.out.println("");
 
         insertionSort(a);
-        printout("Insertion Sort: ", a);
+        printout("Insertion Sort data: ", a);
 
         shuffle(a);
         // printout("Shuffled data: ", a);
