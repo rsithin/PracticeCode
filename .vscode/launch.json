@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Algorithms",
+            "request": "launch",
+            "mainClass": "Algorithms",
+            "projectName": "PracticeCode_a95aaca1"
+        },
+        {
+            "type": "java",
+            "name": "Practice",
+            "request": "launch",
+            "mainClass": "Practice",
+            "projectName": "PracticeCode_a95aaca1"
+        },
+        {
+            "type": "java",
+            "name": "ThreadTest",
+            "request": "launch",
+            "mainClass": "ThreadTest",
+            "projectName": "PracticeCode_a95aaca1"
+        },
+        {
+            "type": "java",
+            "name": "UASortAndMerge",
+            "request": "launch",
+            "mainClass": "UASortAndMerge",
+            "projectName": "PracticeCode_a95aaca1",
+            "args": "C:\\Users\\rsith\\Documents\\School\\Algorithms\\PracticeCode\\records.txt C:\\Users\\rsith\\Documents\\School\\Algorithms\\PracticeCode\\output.txt 2"
+        }
+    ]
+}
